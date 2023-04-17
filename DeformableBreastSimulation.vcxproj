@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\constraint.cpp" />
+    <ClCompile Include="src\deformationgradient.cpp" />
+    <ClCompile Include="src\element.cpp" />
+    <ClCompile Include="src\energy.cpp" />
+    <ClCompile Include="src\evaluationmetric.cpp" />
+    <ClCompile Include="src\experiments.cpp" />
+    <ClCompile Include="src\invariant.cpp" />
+    <ClCompile Include="src\linesearch.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\materialmodel.cpp" />
+    <ClCompile Include="src\meshsampler.cpp" />
+    <ClCompile Include="src\scene.cpp" />
+    <ClCompile Include="src\solver.cpp" />
+    <ClCompile Include="src\tetrahedralmesh.cpp" />
+    <ClCompile Include="src\util.cpp" />
+    <ClCompile Include="src\viewer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\constraint.h" />
+    <ClInclude Include="src\deformationgradient.h" />
+    <ClInclude Include="src\element.h" />
+    <ClInclude Include="src\energy.h" />
+    <ClInclude Include="src\evaluationmetric.h" />
+    <ClInclude Include="src\experiments.h" />
+    <ClInclude Include="src\invariant.h" />
+    <ClInclude Include="src\linesearch.h" />
+    <ClInclude Include="src\materialmodel.h" />
+    <ClInclude Include="src\matlab.h" />
+    <ClInclude Include="src\meshsampler.h" />
+    <ClInclude Include="src\optimizationmethods.h" />
+    <ClInclude Include="src\parametersearch.h" />
+    <ClInclude Include="src\scene.h" />
+    <ClInclude Include="src\solver.h" />
+    <ClInclude Include="src\testcases.h" />
+    <ClInclude Include="src\tetrahedralmesh.h" />
+    <ClInclude Include="src\util.h" />
+    <ClInclude Include="src\viewer.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{afe61758-74fe-44f4-8d55-ab0054337ffc}</ProjectGuid>
+    <RootNamespace>DeformableBreastSimulation</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseInteloneMKL>No</UseInteloneMKL>
+    <UseILP64Interfaces1A>false</UseILP64Interfaces1A>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>C:\Program Files\MATLAB\R2021a\bin\win64;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Hamyeah\DeformableBreastSimulation\external\libigl\external\libigl-imgui;C:\Users\Hamyeah\DeformableBreastSimulation\external\imgui;C:\Users\Hamyeah\DeformableBreastSimulation\external\imgui\backends;C:\Users\Hamyeah\DeformableBreastSimulation\external;C:\Users\Hamyeah\DeformableBreastSimulation\external\autodiff;C:\Users\Hamyeah\DeformableBreastSimulation\external\libigl\include;C:\Users\Hamyeah\DeformableBreastSimulation\external\eigen;C:\Users\Hamyeah\DeformableBreastSimulation\external\glad\build\include;C:\Users\Hamyeah\DeformableBreastSimulation\external\glfw\include;C:\Users\Hamyeah\DeformableBreastSimulation\external\tetgen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Hamyeah\DeformableBreastSimulation\external\libigl\build\Debug;C:\Users\Hamyeah\DeformableBreastSimulation\external\glfw\build\src\Debug;C:\Users\Hamyeah\DeformableBreastSimulation\external\glad\build\Debug;C:\Users\Hamyeah\DeformableBreastSimulation\external\tetgen\build\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glad.lib;tetgen.lib;igl.lib;igl_opengl.lib;igl_opengl_glfw.lib;igl_opengl_glfw_imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Program Files\MATLAB\R2021a\extern\include;C:\Program Files (x86)\Intel\oneAPI\mkl\2022.0.0\include;$(SolutionDir)\external\autodiff;$(SolutionDir)\external\eigen;$(SolutionDir)\external\libigl\external\mpfr\include;$(SolutionDir)\external\libigl\external\gmp\include;$(SolutionDir)\external\libigl\updated_build\_deps\glad-src\include;$(SolutionDir)\external\libigl\updated_build\_deps\glfw-src\include;$(SolutionDir)\external\libigl\updated_build\_deps\imgui-src;$(SolutionDir)\external\libigl\updated_build\_deps\imguizmo-src;$(SolutionDir)\external\libigl\updated_build\_deps\tetgen-src;$(SolutionDir)\external\libigl\include;$(SolutionDir)\external\libigl\updated_build\_deps\libigl_imgui_fonts-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <OpenMPSupport>true</OpenMPSupport>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\external\libigl\updated_build\lib\Release;C:\Program Files\MATLAB\R2021a\extern\lib\win64\microsoft;$(SolutionDir)\external\tetgen\build\Release;$(SolutionDir)\external\glad\build\Release;$(SolutionDir)\external\glfw\build\src\Release;C:\Program Files (x86)\Intel\oneAPI\mkl\2022.0.0\lib\intel64;$(SolutionDir)\external\libigl\external\mpfr\lib;$(SolutionDir)\external\libigl\external\gmp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glad.lib;tetgen.lib;imgui.lib;imguizmo.lib;igl_imgui.lib;igl_glfw.lib;igl_opengl.lib;igl_copyleft_core.lib;igl_copyleft_tetgen.lib;igl.lib;libgmp-10.lib;libmpfr-4.lib;mkl_intel_lp64.lib;mkl_sequential.lib;mkl_core.lib;libMatlabEngine.lib;libMatlabDataArray.lib;libmx.lib;libmex.lib;libeng.lib;libmat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
