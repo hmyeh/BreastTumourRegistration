@@ -149,14 +149,9 @@ bool Solver::solve(EnergyFunction* energy_function, Eigen::Ref<Eigen::Matrix3Xd>
 				Eigen::SimplicialLDLT<Eigen::SparseMatrix<double>> solver(hessian);
 				descentDir = solver.solve(grad);
 
-				//if (solver.info() != Eigen::Success) {
-				//	throw std::exception("The solver failed to find a solution");
-				//}
-
 				// Sanity checking system of equations
 				checkSystemOfEquations(hessian, descentDir, grad);
 
-				//descentDir = luResult;
 				descentDir = -descentDir;
 			}
 		}
@@ -186,7 +181,6 @@ bool Solver::solve(EnergyFunction* energy_function, Eigen::Ref<Eigen::Matrix3Xd>
 		// In case of debug mode, write the mesh to the output directory
 		if (params.debug_mode) {
 			// Write the tet mesh to an OBJ file with the current values for x
-			//igl::writeOBJ("output/test.obj", x.transpose(), Eigen::MatrixXi());
 			tet_mesh->writeToFile(x.transpose(), params.output_path, "debug_" + std::to_string(i + 2));
 		}
 	}
@@ -228,21 +222,11 @@ bool Solver::reducedSolve(EnergyFunction* energy_function, const Eigen::MatrixXd
 		// Compute the descent direction for the solve depending on the optimization method
 		Eigen::SparseMatrix<double> hessian = energy_function->computeHessian(x, fixedDOFs);
 
-
 		// Solve reduced system
 		Eigen::MatrixXd reduced_hessian = U.transpose() * hessian * U;
 		Eigen::VectorXd reduced_grad = U.transpose() * grad;
 		Eigen::LDLT<Eigen::MatrixXd> solver(reduced_hessian); 
-		//Eigen::FullPivLU<Eigen::MatrixXd> solver(reduced_hessian);
 		descentDir = solver.solve(reduced_grad);
-
-		//if (solver.info() != Eigen::Success) {
-		//	throw std::exception("The solver failed to find a solution");
-		//}
-
-		// Sanity checking system of equations
-		//checkSystemOfEquations(hessian, descentDir, grad);
-
 		descentDir = -U * descentDir;
 
 		// Find a suitable step length for the descent direction
@@ -316,12 +300,9 @@ void Solver::nonRigidAlignment(TetrahedralMesh* t1, const std::vector<bool>& fix
 
 		// use normal solve with new constraints
 		constraint_manager->clearSoftConstraints();
-		//double correspondence_weight = 100.0;
-		//constraint_manager->addCorrespondenceConstraints(t1, t2, correspondences, correspondence_weight);
 		// Add new constraints
 		for (unsigned int j = 0; j < C.rows(); ++j) {
-			// TESTING ADDING SOFT FIXED POINT CONSTRAINT
-			//constraint_manager->addSoftConstraint(std::shared_ptr<SoftConstraint>(new SoftFixedPointConstraint(v_ind1(j), C.row(j), 10.0))); // soft_fixed_point_weight 1.0
+			constraint_manager->addSoftConstraint(std::shared_ptr<SoftConstraint>(new SoftFixedPointConstraint(v_ind1(j), C.row(j), 10.0))); 
 
 			constraint_manager->addSoftConstraint(std::shared_ptr<SoftConstraint>(new SoftPointToPlaneConstraint(v_ind1(j), C.row(j), C_normals.row(j), soft_fixed_point_weight)));
 		}
@@ -335,17 +316,13 @@ void Solver::nonRigidAlignment(TetrahedralMesh* t1, const std::vector<bool>& fix
 		if (termination_gradient.squaredNorm() < params.tolerance) {
 			break;
 		}
-		//if ((subspace.transpose() * termination_gradient).squaredNorm() < 10e-4) {
-		//	break;
-		//}
 
 		Solver::solve(energy_function, X, solver_params);
-		//Solver::reducedSolve(energy_function, subspace, X, solver_params);
 		Eigen::MatrixXd X_view = X.transpose();
 		t1->setVertices(X_view);
 		
 
-		/// TESTING
+		/// Debug write mesh to file
 		if (params.debug_mode) {
 			t1->writeToFile(params.output_path, "nonrigid_after_constrained_solve_" + std::to_string(i));
 		}
